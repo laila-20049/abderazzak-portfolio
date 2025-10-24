@@ -12,6 +12,9 @@ const Contact = () => {
     message: ''
   })
 
+  // WhatsApp number en format international sans + ni espaces
+  const whatsappNumber = '212772257029'
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,8 +24,15 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Message envoyé avec succès!')
+
+    const text = `Nom: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`
+    const encoded = encodeURIComponent(text) // sécurise le texte
+    const url = `https://wa.me/${whatsappNumber}?text=${encoded}`
+
+    // ouvre WhatsApp Web / application dans un nouvel onglet
+    window.open(url, '_blank')
+
+    console.log('Form submitted (WhatsApp):', formData)
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -39,16 +49,9 @@ const Contact = () => {
             Contact
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Discutons de votre projet et créons ensemble quelque chose d'exceptionnel.
+            Discutons de votre projet et créons
           </p>
-        </motion.div>
 
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12"
-        >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -86,7 +89,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 dark:text-white">Téléphone</div>
-                  <div className="text-gray-600 dark:text-gray-300">+212 7 72257029</div>
+                  <div className="text-gray-600 dark:text-gray-300">+212 772 257 029</div>
                 </div>
               </div>
             </div>
