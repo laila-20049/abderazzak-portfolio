@@ -210,28 +210,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Section d'information pour le développement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 p-6 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-2xl"
-        >
-          <div className="flex items-start space-x-3">
-            <svg className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-            </svg>
-            <div>
-              <h3 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">
-                Information pour l'affichage des vidéos
-              </h3>
-              <p className="text-yellow-700 dark:text-yellow-400 text-sm">
-                Assurez-vous que vos fichiers vidéo sont dans le dossier <code className="bg-yellow-100 dark:bg-yellow-800 px-1 rounded">public/</code> de votre projet Next.js.
-                Les chemins doivent être : <code className="bg-yellow-100 dark:bg-yellow-800 px-1 rounded">/snack.mp4</code>, <code className="bg-yellow-100 dark:bg-yellow-800 px-1 rounded">/restaurant.mp4</code>, etc.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
 
       <style jsx>{`
