@@ -36,6 +36,11 @@ const Contact = () => {
     window.open('tel:+212772257029', '_self')
   }
 
+  const openInstagram = () => {
+    const url = 'https://www.instagram.com/abderazzakmounir?igsh=MW1yMTN4OWNsbTRvZQ%3D%3D&utm_source=qr'
+    window.open(url, '_blank')
+  }
+
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto px-4">
@@ -80,6 +85,16 @@ const Contact = () => {
                 <span className="text-xl">📞</span>
                 <span>Appeler maintenant</span>
               </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={openInstagram}
+                className="w-full py-4 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center space-x-3"
+              >
+                <span className="text-xl">📸</span>
+                <span>Visiter Instagram</span>
+              </motion.button>
             </div>
 
             {/* Informations de contact */}
@@ -100,6 +115,7 @@ const Contact = () => {
                   <span className="text-gray-600 dark:text-gray-300">📍</span>
                   <span className="text-gray-700 dark:text-gray-300">Casablanca, Maroc</span>
                 </div>
+                
               </div>
             </div>
           </div>
